@@ -2,10 +2,8 @@ package dev.myer.matchingdeposit.mixin;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.Button;
-import net.minecraft.client.gui.components.events.GuiEventListener;
-import net.minecraft.client.gui.narration.NarratableEntry;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
-import net.minecraft.client.gui.components.Renderable;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ChestMenu;
@@ -20,12 +18,15 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(AbstractContainerScreen.class)
-public abstract class ContainerDepositMixin {
+public abstract class ContainerDepositMixin extends Screen {
+    protected ContainerDepositMixin(Component title) {
+        super(title);
+    }
+
     @Shadow protected int leftPos;
     @Shadow protected int topPos;
     @Shadow protected int imageWidth;
     @Shadow public abstract AbstractContainerMenu getMenu();
-    @Shadow protected abstract <T extends GuiEventListener & Renderable & NarratableEntry> T addRenderableWidget(T widget);
 
     @Inject(method = "init", at = @At("TAIL"))
     private void matchingdeposit$addButton(CallbackInfo ci) {
