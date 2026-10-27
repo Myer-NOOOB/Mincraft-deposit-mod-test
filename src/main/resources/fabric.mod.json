@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "matching-deposit",
+  "version": "${version}",
+  "name": "Matching Deposit",
+  "description": "Adds a button to deposit inventory stacks that match items already in the open chest or shulker box.",
+  "authors": ["Myer"],
+  "license": "MIT",
+  "environment": "client",
+  "mixins": [
+    {
+      "config": "matching-deposit.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=0.16.14",
+    "minecraft": "26.2",
+    "java": ">=25"
+  }
+}

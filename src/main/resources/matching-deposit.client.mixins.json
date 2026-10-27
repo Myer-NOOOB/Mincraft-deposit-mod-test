@@ -1,0 +1,11 @@
+{
+  "required": true,
+  "package": "dev.myer.matchingdeposit.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "client": [
+    "ContainerDepositMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
