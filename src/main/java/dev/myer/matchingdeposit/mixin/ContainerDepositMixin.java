@@ -9,7 +9,7 @@ import net.minecraft.client.gui.components.Renderable;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ChestMenu;
-import net.minecraft.world.inventory.ClickType;
+import net.minecraft.world.inventory.ContainerInput;
 import net.minecraft.world.inventory.ShulkerBoxMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.inventory.Slot;
@@ -87,11 +87,11 @@ public abstract class ContainerDepositMixin {
             }
 
             if (matchingStackExists) {
-                minecraft.gameMode.handleInventoryMouseClick(
+                minecraft.gameMode.handleContainerInput(
                         menu.containerId,
                         playerSlotIndex,
                         0,
-                        ClickType.QUICK_MOVE,
+                        ContainerInput.QUICK_MOVE,
                         minecraft.player
                 );
             }
